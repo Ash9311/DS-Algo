@@ -119,10 +119,10 @@ int Eval(char *postfix){
     
     for(i=0;postfix[i]!='\0';i++){
         if(isOperand(postfix[i])){
-            push(postfix[i]-'0');
+            push(postfix[i]-'0');   // since ascii value is stored subtract it by zero
         }
         else{
-            x2=pop();
+            x2=pop();    //pop the 2 operands to perform the operation
             x1=pop();
 
             switch(postfix[i]){
@@ -151,7 +151,7 @@ int Eval(char *postfix){
 
 int main(){
   
-     char *postfix="234*+82/-";
+     char *postfix="234*+82/-"; //pointer bcoz to pass char as a string
      printf("Result is %d\n",Eval(postfix));
 
       return 0;
